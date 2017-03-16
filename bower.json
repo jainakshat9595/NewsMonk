@@ -5,9 +5,5 @@
 		"bootstrap": "latest",
 		"angular": "latest",
 		"angular-route": "latest"	
-	},
-	"scripts": {
-		"start": "node server.js",
-		"postinstall": "./node_modules/bower/bin/bower install"
 	}	
 }
