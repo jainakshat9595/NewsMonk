@@ -1,5 +1,17 @@
-<div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="" ng-repeat="source in sources">
+				<a ng-click="refresh(source.id);"> {{source.name}} </a>
+			</div>
+		</div>
+		<div class="col-sm-8">
 
-	<p>{{ tagline }}</p>
+
+			<div class="" ng-repeat="article in articles">
+				<h2> {{article.title}} </h2>
+				<p> {{article.description}} </p>
+			</div>
+		</div>
+	</div>
 </div>
