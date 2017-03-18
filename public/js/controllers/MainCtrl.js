@@ -16,7 +16,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	});	
 	$http({
 		method: 'GET',
-		url: '/api/news/bbc-sport'
+		url: '/api/news/the-next-web'
 		}).then(function successCallback(response) {
 			$scope.articles = response.data;
 		}, function errorCallback(response) {
