@@ -1,31 +1,93 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $http) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, $http, Main) {
 
 	$scope.tagline = 'To the moon and back!';	
 
 	$scope.sources = [];
 
 	$scope.articles = [];
+	$scope.showLoadBlock = false;
 
-	$http({
-	method: 'GET',
-	url: '/api/sources'
-	}).then(function successCallback(response) {
-		$scope.sources = response.data;
-	}, function errorCallback(response) {
-		console.log(response);
-	});	
+	$scope.displayProgressBar = false;
+
+	$scope.generateTopicsData;
+	$scope.classifyTopicsData;
+
+	$scope.noTopics = 5;
+
 	$http({
 		method: 'GET',
-		url: '/api/news/the-next-web'
+		url: '/api/sources'
 		}).then(function successCallback(response) {
-			$scope.articles = response.data;
+			$scope.sources = response.data;
 		}, function errorCallback(response) {
 			console.log(response);
-		});	
+	});	
 
 	$scope.refresh = function(source_id) {
-		console.log("Asase");
-		
+		$scope.classifyTopicsData = new Array();
+		$scope.showLoadBlock = true;
+		Main.getNews(source_id).then(function(data) {
+			$scope.showLoadBlock = false;
+			
+			data.forEach(function(element) {
+				$scope.classifyTopicsData.push({
+					'sentenceString' : element.description,
+					'topics' : new Array()
+					}
+				);
+			}, this);
+      		
+		});
+
+	}
+
+	$scope.generateTopics = function() {
+		$scope.showLoadBlock = true;
+		Main.getTopics($scope.noTopics).then(function(data) {
+			$scope.generateTopicsData = new Array($scope.noTopics);
+			$scope.classifyTopicsData = new Array(data.noSentences);
+			
+			data.generateResult.forEach(function(element) {
+				if(!$scope.generateTopicsData[element.topic]) {
+					$scope.generateTopicsData[element.topic] = {
+						'words' : new Array()
+					};
+				}
+				var word = {
+					'wordName' : element.word,
+					'wordProb' : element.prob,
+				 };
+				 $scope.generateTopicsData[element.topic].words.push(word);
+			}, this);
+
+			console.log(data);
+
+			$scope.showLoadBlock = false;
+
+			data.topicResult.forEach(function(element) {
+				if(!$scope.classifyTopicsData[element.sentenceIndex]) {
+					$scope.classifyTopicsData[element.sentenceIndex] = {
+						'sentenceString' : element.sentenceString,
+						'topics' : new Array()
+					};
+				}
+				 var topic = {
+					'topic' : element.topic,
+					'prob' : element.prob,
+				 };
+				 $scope.classifyTopicsData[element.sentenceIndex].topics.push(topic);
+			}, this);
+
+
+
+			console.log($scope.classifyTopicsData);
+
+		});
+	}
+
+	$scope.classifyTopics = function() {
+		$scope.displayProgressBar = true;
+		console.log("as");
 	}
 
 });

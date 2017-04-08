@@ -1,17 +1,30 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-2">
-			<div class="" ng-repeat="source in sources">
-				<a ng-click="refresh(source.id);"> {{source.name}} </a>
+			<div class="source-item" ng-repeat="source in sources">
+				<a class="source-link" ng-click="refresh(source.id);"> {{source.name}} </a>
 			</div>
 		</div>
 		<div class="col-sm-8">
-
-
-			<div class="" ng-repeat="article in articles">
-				<h2> {{article.title}} </h2>
-				<p> {{article.description}} </p>
+			<div class="" ng-repeat="article in classifyTopicsData">
+				<h2> {{article.sentenceString}} </h2>
+				<div style="display:table" >
+					<div ng-repeat="topic in article.topics" style="width:{{topic.prob*100*10}}px;" class="prog-bar color{{$index+1}}"></div>
+				</div>
+				<hr />
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<div class="panel panel-default color{{$index+1}}" ng-repeat="topic in generateTopicsData">
+  				<div class="panel-heading">Topic {{$index+1}} </div>
+  				<div class="panel-body">
+    				<p ng-repeat="word in topic.words"> {{word.wordName}} </p>
+  				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<div id="load-block" class="load-block" ng-if="showLoadBlock">
+	<img class="img-responsive" src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif" />
 </div>
