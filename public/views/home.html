@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-sm-2">
 			<div class="panel panel-default color{{$index+1}}" ng-repeat="topic in generateTopicsData">
-  				<div class="panel-heading">Topic {{$index+1}} </div>
+  				<div class="panel-heading"> {{topic.label}} </div>
   				<div class="panel-body">
     				<p ng-repeat="word in topic.words"> {{word.wordName}} </p>
   				</div>

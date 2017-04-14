@@ -50,7 +50,8 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 			data.generateResult.forEach(function(element) {
 				if(!$scope.generateTopicsData[element.topic]) {
 					$scope.generateTopicsData[element.topic] = {
-						'words' : new Array()
+						'words' : new Array(),
+						'label' : ''
 					};
 				}
 				var word = {
@@ -58,9 +59,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 					'wordProb' : element.prob,
 				 };
 				 $scope.generateTopicsData[element.topic].words.push(word);
+				 if($scope.generateTopicsData[element.topic].label == '') {
+					$scope.generateTopicsData[element.topic].label = element.word;
+				 }
 			}, this);
 
-			console.log(data);
+			console.log($scope.generateTopicsData);
 
 			$scope.showLoadBlock = false;
 

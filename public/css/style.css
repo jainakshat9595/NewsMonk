@@ -51,25 +51,11 @@ ul.navbar-right {
 
 .panel.color2{ border-color:#00FF00;}
 
-.panel.color3{ border-color:#808000;}
+.panel.color3{ border-color:#FF00FF;}
 
-.panel.color4{ border-color:#00FF00;}
+.panel.color4{ border-color:orange;}
 
-.panel.color5{ border-color:#008000;}
-
-.panel.color6{ border-color:#00FFFF;}
-
-.panel.color7{ border-color:orange;}
-
-.panel.color8{ border-color:#800000;}
-
-.panel.color9{ border-color:#000080;}
-
-.panel.color10{ border-color:#FF00FF;}
-
-.panel.color11{ border-color:#800080;}
-
-.panel.color12{ border-color:#C0C0C0;}
+.panel.color5{ border-color:#800000;}
 
 
 .panel.color0 .panel-heading { 
@@ -88,53 +74,18 @@ ul.navbar-right {
 }
 
 .panel.color3 .panel-heading { 
-    border-color:#808000;
-    background-color:#808000;
-}
-
-.panel.color4 .panel-heading { 
-    border-color:#00FF00;
-    background-color:#00FF00;
-}
-
-.panel.color5 .panel-heading { 
-    border-color:#008000;
-    background-color:#008000;
-}
-
-.panel.color6 .panel-heading { 
-    border-color:#00FFFF;
-    background-color:#00FFFF;
-}
-
-.panel.color7 .panel-heading { 
-    border-color:orange;
-    background-color:orange;
-}
-
-.panel.color8 .panel-heading { 
-    border-color:#800000;
-    background-color:#800000;
-}
-
-.panel.color9 .panel-heading { 
-    border-color:#000080;
-    background-color:#000080;
-}
-
-.panel.color10 .panel-heading { 
     border-color:#FF00FF;
     background-color:#FF00FF;
 }
 
-.panel.color11 .panel-heading { 
-    border-color:#800080;
-    background-color:#800080;
+.panel.color4 .panel-heading { 
+    border-color:orange;
+    background-color:orange;
 }
 
-.panel.color12 .panel-heading { 
-    border-color:#C0C0C0;
-    background-color:#C0C0C0;
+.panel.color5 .panel-heading { 
+    border-color:#800000;
+    background-color:#800000;
 }
 
 .prog-bar {
@@ -157,22 +108,8 @@ ul.navbar-right {
 
 .prog-bar.color2{ background-color:#00FF00;}
 
-.prog-bar.color3{ background-color:#808000;}
+.prog-bar.color3{ background-color:#FF00FF;}
 
-.prog-bar.color4{ background-color:#00FF00;}
+.prog-bar.color4{ background-color:orange;} 
 
-.prog-bar.color5{ background-color:#008000;}
-
-.prog-bar.color6{ background-color:#00FFFF;}
-
-.prog-bar.color7{ background-color:orange;} 
-
-.prog-bar.color8{ background-color:#800000;}
-
-.prog-bar.color9{ background-color:#000080;}
-
-.prog-bar.color10{ background-color:#FF00FF;}
-
-.prog-bar.color11{ background-color:#800080;}
-
-.prog-bar.color12{ background-color:#C0C0C0;}
+.prog-bar.color5{ background-color:#800000;}
