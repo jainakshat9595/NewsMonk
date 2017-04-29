@@ -12,7 +12,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	$scope.generateTopicsData;
 	$scope.classifyTopicsData;
 
-	$scope.noTopics = 5;
+	$scope.noTopics = 3;
 
 	$http({
 		method: 'GET',
